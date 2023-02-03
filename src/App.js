@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Header from './components/Header';
 import Album from './pages/Album';
 import Favorites from './pages/Favorites';
 import Login from './pages/Login';
@@ -17,6 +18,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <Header />
         <Switch>
           <Route path="/search" component={ Search } />
           <Route path="/album/:id" component={ Album } />
