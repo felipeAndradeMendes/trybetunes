@@ -1,12 +1,47 @@
 import React from 'react';
+import { createUser } from '../services/userAPI';
 
 class Login extends React.Component {
-  render() {
+
+  state = {
+    btnEntrar: true,
+    loginName: '',
+    loading: false,
+  };
+
+  handleChange = ({ target: { value, } }) => {
+    const { loginName } = this.state;
+    this.setState({
+      loginName: value,
+      btnEntrar: loginName.length > 1 ? false : true,
+    });
+  }
+
+  // createUserFunc = async () => {
+  //   const { loginName, loading } = this.state;
+  //   const { history } = this.props;
+  //   console.log('HISTORY', history)
+  //   // console.log('INICIOU A FUNÇÃO')
+
+  //   this.setState({
+  //     loading: true,
+  //   });
+  //   // console.log('CHAMOU O SETsTATE')
+
+  //   await createUser({name: loginName});
+  //   // console.log('ACABOU A FUNÇÃO ASYNC')
+
+  //   this.setState({
+  //     loading: false,
+  //   }, () => { history.push('/search')});
+  // }
+
+  render() { 
+
     const {
-      disable,
-      handleChange,
-      handleClick,
-    } = this.props;
+      btnEntrar,
+      loading,
+    } = this.state;
 
     return (
       <div data-testid="page-login">
@@ -15,13 +50,13 @@ class Login extends React.Component {
           <input
             data-testid="login-name-input"
             type="text"
-            onChange={ handleChange }
+            onChange={ this.handleChange }
           />
           <button 
             type="button"
             data-testid="login-submit-button"
-            disabled={ disable }
-            onClick={ handleClick }         
+            disabled={ btnEntrar }
+            onClick={ this.createUserFunc }         
           >
             Entrar
           </button>
