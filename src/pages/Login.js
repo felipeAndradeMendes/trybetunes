@@ -1,5 +1,6 @@
 import React from 'react';
 import { createUser } from '../services/userAPI';
+import Loading from './Loading';
 
 class Login extends React.Component {
 
@@ -17,32 +18,33 @@ class Login extends React.Component {
     });
   }
 
-  // createUserFunc = async () => {
-  //   const { loginName, loading } = this.state;
-  //   const { history } = this.props;
-  //   console.log('HISTORY', history)
-  //   // console.log('INICIOU A FUNÇÃO')
+  createUserFunc = async () => {
+    const { loginName, loading } = this.state;
+    const { history } = this.props;
+    // console.log('HISTORY', history)
+    // console.log('INICIOU A FUNÇÃO')
 
-  //   this.setState({
-  //     loading: true,
-  //   });
-  //   // console.log('CHAMOU O SETsTATE')
+    this.setState({
+      loading: true,
+    });
+    // console.log('CHAMOU O SETsTATE')
 
-  //   await createUser({name: loginName});
-  //   // console.log('ACABOU A FUNÇÃO ASYNC')
+    await createUser({name: loginName});
+    // console.log('ACABOU A FUNÇÃO ASYNC')
 
-  //   this.setState({
-  //     loading: false,
-  //   }, () => { history.push('/search')});
-  // }
+    this.setState({
+      loading: false,
+    }, () => { history.push('/search')});
+  }
 
   render() { 
-
+    
     const {
       btnEntrar,
       loading,
     } = this.state;
-
+    
+    if (loading) return <Loading />
     return (
       <div data-testid="page-login">
         <form>

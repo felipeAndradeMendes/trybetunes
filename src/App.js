@@ -20,7 +20,6 @@ class App extends React.Component {
     //   loading,
     // } = this.state;
 
-    // if (loading) return <Loading />
     return (
       <div>
         <Switch>
@@ -31,7 +30,7 @@ class App extends React.Component {
           <Route path="/profile" component={ Profile } />
           <Route exact path="/" component={ Login } /> 
           <Route path="*" component={ NotFound } />
-          
+
             // <Login 
               // disable={ btnEntrar }
               // handleChange={ this.handleChange }
