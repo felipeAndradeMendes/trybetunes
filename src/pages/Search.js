@@ -22,13 +22,11 @@ class Search extends React.Component {
   };
 
   handleClick = async () => {
-    const  { search } = this.state;
+    const { search } = this.state;
 
-    const foundAlbuns = await searchAlbumsAPI(search);     
-    
-    const albunsMaped = foundAlbuns.map((album) => {
-      return album
-    })
+    const foundAlbuns = await searchAlbumsAPI(search);
+
+    const albunsMaped = foundAlbuns.map((album) => album);
 
     this.setState({
       search: '',
@@ -38,11 +36,10 @@ class Search extends React.Component {
       loading: false,
       albuns: albunsMaped,
       BtnPesquisar: true,
-    }));  
+    }));
 
-    console.log('ALBUNS', albunsMaped)
-  }
-
+    console.log('ALBUNS', albunsMaped);
+  };
 
   render() {
     const {
@@ -50,10 +47,10 @@ class Search extends React.Component {
       BtnPesquisar,
       loading,
       searchSaved,
-      albuns 
+      albuns,
     } = this.state;
- 
-  console.log('ALBUNS MAPED', albuns)
+
+    console.log('ALBUNS MAPED', albuns);
 
     if (loading) return <Loading />;
 
@@ -79,25 +76,24 @@ class Search extends React.Component {
 
         <div className="albunsSearchContainer">
           <h2>
-          {`Resultado de álbuns de: ${searchSaved}`}
+            {`Resultado de álbuns de: ${searchSaved}`}
           </h2>
-          
-          {
-          albuns.length === 0 ?
-          <h1>Nenhum álbum foi encontrado</h1> :
 
-          <div className="albunsContainer">
-            {albuns.map((album) => (              
-            <AlbumCard
-              key={ album.collectionId }
-              albumImg={ album.artworkUrl100 }  
-              albumTitle={ album.collectionName }          
-              artistName={ album.artistName }
-              collectionId={ album.collectionId }
-            />
-            ))}
-          </div>
-         }
+          {
+            albuns.length === 0
+              ? <h1>Nenhum álbum foi encontrado</h1>
+              : <div className="albunsContainer">
+                {albuns.map((album) => (
+                  <AlbumCard
+                    key={ album.collectionId }
+                    albumImg={ album.artworkUrl100 }
+                    albumTitle={ album.collectionName }
+                    artistName={ album.artistName }
+                    collectionId={ album.collectionId }
+                  />
+                ))}
+              </div>
+          }
 
         </div>
       </div>
