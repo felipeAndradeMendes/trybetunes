@@ -7,6 +7,7 @@ class MusicCard extends React.Component {
 
   state = {
     loading: false,
+    favoriteTracks: [],
   };
 
   handleChange = ({ target: {id} }) => {
@@ -17,7 +18,11 @@ class MusicCard extends React.Component {
     const trackClicked = musicList.find((track) => {
       return track.trackId === Number(id);
     });
-
+   // PAREI MEIO ENCALHADO NO PROBLEMA DE O CHECKBOX  DESMACAR QD 
+   // ATUALIZA A PAGINA
+   // QUERO TENTAR FAZER OS REQUISITOS 08, 09 E 10 INTEGRADOS, PQ ACHO QUE SÓ ASSIM FUNCIONA
+   // E PRA EVITAR RETRABALHO
+    
     console.log(trackClicked)
     this.setFavorite(trackClicked); 
   }
