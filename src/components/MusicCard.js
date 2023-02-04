@@ -4,47 +4,46 @@ import { addSong } from '../services/favoriteSongsAPI';
 import Loading from '../pages/Loading';
 
 class MusicCard extends React.Component {
-
   state = {
     loading: false,
-    favoriteTracks: [],
   };
 
-  handleChange = ({ target: {id} }) => {
+  handleChange = ({ target: { id } }) => {
     const {
       musicList,
     } = this.props;
 
-    const trackClicked = musicList.find((track) => {
-      return track.trackId === Number(id);
-    });
-   // PAREI MEIO ENCALHADO NO PROBLEMA DE O CHECKBOX  DESMACAR QD 
-   // ATUALIZA A PAGINA
-   // QUERO TENTAR FAZER OS REQUISITOS 08, 09 E 10 INTEGRADOS, PQ ACHO QUE SÓ ASSIM FUNCIONA
-   // E PRA EVITAR RETRABALHO
-    
-    console.log(trackClicked)
-    this.setFavorite(trackClicked); 
-  }
+    const trackClicked = musicList.find((track) => track.trackId === Number(id));
+    // PAREI MEIO ENCALHADO NO PROBLEMA DE O CHECKBOX  DESMACAR QD
+    // ATUALIZA A PAGINA
+    // QUERO TENTAR FAZER OS REQUISITOS 08, 09 E 10 INTEGRADOS, PQ ACHO QUE SÓ ASSIM FUNCIONA
+    // E PRA EVITAR RETRABALHO
+
+    console.log(trackClicked);
+    this.setFavorite(trackClicked);
+  };
 
   setFavorite = async (trackId) => {
     this.setState({
       loading: true,
     }, async () => {
-      await addSong(trackId)
+      await addSong(trackId);
       this.setState({
         loading: false,
-      })
-    })
-  }
+      });
+    });
+  };
 
   render() {
     const {
       musicList,
     } = this.props;
 
+    const {
+      loading,
+    } = this.state;
 
-    // if (this.state.loading) return <Loading />;
+    if (loading) return <Loading />;
 
     return (
       <div>
@@ -69,10 +68,10 @@ class MusicCard extends React.Component {
                   </audio>
                   <label htmlFor={ music.trackId }>
                     Favorita
-                    <input 
+                    <input
                       type="checkbox"
                       id={ music.trackId }
-                      data-testid={`checkbox-music-${music.trackId}`}
+                      data-testid={ `checkbox-music-${music.trackId}` }
                       onChange={ this.handleChange }
                     />
 
