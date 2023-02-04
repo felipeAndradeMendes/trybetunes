@@ -38,7 +38,7 @@ class Search extends React.Component {
       BtnPesquisar: true,
     }));
 
-    console.log('ALBUNS', albunsMaped);
+    // console.log('ALBUNS', albunsMaped);
   };
 
   render() {
