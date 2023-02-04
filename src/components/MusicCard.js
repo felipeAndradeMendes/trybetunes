@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class MusicCard extends React.Component {
   render() {
@@ -11,18 +12,23 @@ class MusicCard extends React.Component {
         <div>
           <ul>
             {musicList.map((music, index) => (
-              index !== 0 && 
-              <li key={ music.trackId }>
-                { music.trackName }
-                <audio 
-                  data-testid="audio-component" 
-                  src={music.previewUrl}
-                  controls>
-                  <track kind="captions" />
-                  O seu navegador não suporta o elemento{" "} <code>audio</code>.
-                </audio>
-              </li>
-              
+              (index !== 0) && (
+                <li key={ music.trackId }>
+                  { music.trackName }
+                  <audio
+                    data-testid="audio-component"
+                    src={ music.previewUrl }
+                    controls
+                  >
+                    <track kind="captions" />
+                    O seu navegador não suporta o elemento
+                    {' '}
+                    {' '}
+                    <code>audio</code>
+                    .
+                  </audio>
+                </li>
+              )
             ))}
           </ul>
 
@@ -31,5 +37,9 @@ class MusicCard extends React.Component {
     );
   }
 }
+
+MusicCard.propTypes = {
+  musicList: PropTypes.array,
+}.isRequired;
 
 export default MusicCard;
