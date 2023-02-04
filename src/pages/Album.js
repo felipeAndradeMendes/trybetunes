@@ -26,7 +26,7 @@ class Album extends React.Component {
       albumName: musicList[0].collectionName,
       musicList: musicList,
     });
-    console.log(musicList[1])
+    // console.log(musicList[1])
   }
 
   componentDidMount() {
