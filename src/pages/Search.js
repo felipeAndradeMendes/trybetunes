@@ -50,8 +50,6 @@ class Search extends React.Component {
       albuns,
     } = this.state;
 
-    console.log('ALBUNS MAPED', albuns);
-
     if (loading) return <Loading />;
 
     return (
@@ -79,21 +77,23 @@ class Search extends React.Component {
             {`Resultado de álbuns de: ${searchSaved}`}
           </h2>
 
-          {
-            albuns.length === 0
-              ? <h1>Nenhum álbum foi encontrado</h1>
-              : <div className="albunsContainer">
-                {albuns.map((album) => (
-                  <AlbumCard
-                    key={ album.collectionId }
-                    albumImg={ album.artworkUrl100 }
-                    albumTitle={ album.collectionName }
-                    artistName={ album.artistName }
-                    collectionId={ album.collectionId }
-                  />
-                ))}
-              </div>
-          }
+          {albuns.length === 0 ? (
+            <h1>
+              Nenhum álbum foi encontrado
+            </h1>
+          ) : (
+            <div className="albunsContainer">
+              {albuns.map((album) => (
+                <AlbumCard
+                  key={ album.collectionId }
+                  albumImg={ album.artworkUrl100 }
+                  albumTitle={ album.collectionName }
+                  artistName={ album.artistName }
+                  collectionId={ album.collectionId }
+                />
+              ))}
+            </div>
+          )}
 
         </div>
       </div>
