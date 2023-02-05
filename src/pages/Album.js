@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
 
 class Album extends React.Component {
@@ -51,23 +51,37 @@ class Album extends React.Component {
     // console.log(musicList[1])
   };
 
-  handleChange = ({ target: { id } }) => {
+  handleChange = ({ target }) => {
+    const { id } = target;
     const {
       musicList,
     } = this.state;
 
     const favTrack = musicList.find((track) => track.trackId === Number(id));
 
-    this.setState({
-      loading: true,
-    }, async () => {
-      await addSong(favTrack);
-      const favoriteTracks = await getFavoriteSongs();
+    if (!target.checked) {
       this.setState({
-        loading: false,
-        favoriteList: favoriteTracks,
+        loading: true,
+      }, async () => {
+        await removeSong(favTrack);
+        const favoriteTracks = await getFavoriteSongs();
+        this.setState({
+          loading: false,
+          favoriteList: [...favoriteTracks],
+        });
       });
-    });
+    } else {
+      this.setState({
+        loading: true,
+      }, async () => {
+        await addSong(favTrack);
+        const favoriteTracks = await getFavoriteSongs();
+        this.setState({
+          loading: false,
+          favoriteList: [...favoriteTracks],
+        });
+      });
+    }
   };
 
   render() {
