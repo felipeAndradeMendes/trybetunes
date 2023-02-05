@@ -16,21 +16,21 @@ class Album extends React.Component {
 
   componentDidMount() {
     this.getMusicsFunc();
-    this.mountFavorites()
+    this.mountFavorites();
   }
 
   mountFavorites = () => {
     this.setState({
       loading: true,
     }, async () => {
-      const favoriteTracks = await getFavoriteSongs()
+      const favoriteTracks = await getFavoriteSongs();
       // console.log(favoriteTracks)
       this.setState({
-        loading: false,  
-        favoriteList: [...favoriteTracks],      
+        loading: false,
+        favoriteList: [...favoriteTracks],
       });
-    })
-  }
+    });
+  };
 
   getMusicsFunc = async () => {
     const {
@@ -61,16 +61,15 @@ class Album extends React.Component {
     this.setState({
       loading: true,
     }, async () => {
-      await addSong(favTrack)
+      await addSong(favTrack);
       const favoriteTracks = await getFavoriteSongs();
       this.setState({
-        loading: false,  
-        favoriteList: favoriteTracks,      
+        loading: false,
+        favoriteList: favoriteTracks,
       });
-    })
-  }
+    });
+  };
 
-  
   render() {
     const {
       artistName,

@@ -1,13 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
-import Loading from '../pages/Loading';
 
 class MusicCard extends React.Component {
-  state = {
-    loading: false,
-  };
-
   // handleChange = ({ target: { id } }) => {
   //   const {
   //     musicList,
@@ -33,9 +27,8 @@ class MusicCard extends React.Component {
   isChecked = (id, list) => {
     const res = list.some((track) => track.trackId === Number(id));
     // console.log(res)
-    return res
-  }
- 
+    return res;
+  };
 
   render() {
     const {
@@ -43,12 +36,6 @@ class MusicCard extends React.Component {
       handleChange,
       favoriteList,
     } = this.props;
-
-    const {
-      loading,
-    } = this.state;
-
-    // if (loading) return <Loading />;
 
     return (
       <div>
