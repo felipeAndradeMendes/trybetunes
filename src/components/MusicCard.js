@@ -8,42 +8,47 @@ class MusicCard extends React.Component {
     loading: false,
   };
 
-  handleChange = ({ target: { id } }) => {
-    const {
-      musicList,
-    } = this.props;
+  // handleChange = ({ target: { id } }) => {
+  //   const {
+  //     musicList,
+  //   } = this.props;
 
-    const trackClicked = musicList.find((track) => track.trackId === Number(id));
-    // PAREI MEIO ENCALHADO NO PROBLEMA DE O CHECKBOX  DESMACAR QD
-    // ATUALIZA A PAGINA
-    // QUERO TENTAR FAZER OS REQUISITOS 08, 09 E 10 INTEGRADOS, PQ ACHO QUE SÓ ASSIM FUNCIONA
-    // E PRA EVITAR RETRABALHO
+  //   const trackClicked = musicList.find((track) => track.trackId === Number(id));
 
-    console.log(trackClicked);
-    this.setFavorite(trackClicked);
-  };
+  //   console.log(trackClicked);
+  //   this.setFavorite(trackClicked);
+  // };
 
-  setFavorite = async (trackId) => {
-    this.setState({
-      loading: true,
-    }, async () => {
-      await addSong(trackId);
-      this.setState({
-        loading: false,
-      });
-    });
-  };
+  // setFavorite = async (trackId) => {
+  //   this.setState({
+  //     loading: true,
+  //   }, async () => {
+  //     await addSong(trackId);
+  //     this.setState({
+  //       loading: false,
+  //     });
+  //   });
+  // };
+
+  isChecked = (id, list) => {
+    const res = list.some((track) => track.trackId === Number(id));
+    // console.log(res)
+    return res
+  }
+ 
 
   render() {
     const {
       musicList,
+      handleChange,
+      favoriteList,
     } = this.props;
 
     const {
       loading,
     } = this.state;
 
-    if (loading) return <Loading />;
+    // if (loading) return <Loading />;
 
     return (
       <div>
@@ -72,7 +77,8 @@ class MusicCard extends React.Component {
                       type="checkbox"
                       id={ music.trackId }
                       data-testid={ `checkbox-music-${music.trackId}` }
-                      onChange={ this.handleChange }
+                      onChange={ handleChange }
+                      checked={ this.isChecked(music.trackId, favoriteList) }
                     />
 
                   </label>
