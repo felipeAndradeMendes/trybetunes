@@ -1,13 +1,13 @@
 import React from 'react';
-import { getUser } from '../services/userAPI';
 import { Link } from 'react-router-dom';
+import { getUser } from '../services/userAPI';
+import Loading from './Loading';
 
 class Profile extends React.Component {
-
   state = {
     loading: false,
     user: {},
-  }
+  };
 
   componentDidMount() {
     this.showProfile();
@@ -23,7 +23,7 @@ class Profile extends React.Component {
         user: userInfos,
       });
     });
-  }
+  };
 
   render() {
     const {
@@ -31,23 +31,25 @@ class Profile extends React.Component {
         name,
         email,
         description,
-        image,
-      }
+      },
+      loading,
     } = this.state;
+
+    if (loading) return <Loading />;
 
     return (
       <div data-testid="page-profile">
         PROFILE
-        <br/>
+        <br />
         <div>
-        <img 
-          data-testid="profile-image" 
-          src="url-to-image"
-          alt={ name }
-        />
-        <Link to="/profile/edit">
-          <p>Editar perfil</p>
-        </Link>
+          <img
+            data-testid="profile-image"
+            src="url-to-image"
+            alt={ name }
+          />
+          <Link to="/profile/edit">
+            <p>Editar perfil</p>
+          </Link>
         </div>
 
         <div>
