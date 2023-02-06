@@ -4,13 +4,12 @@ import { getFavoriteSongs, removeSong, addSong } from '../services/favoriteSongs
 import Loading from './Loading';
 
 class Favorites extends React.Component {
-
   state = {
     favoriteList: [],
     loading: false,
   };
 
-  componentDidMount()  {
+  componentDidMount() {
     this.showFavorites();
   }
 
@@ -25,7 +24,7 @@ class Favorites extends React.Component {
         favoriteList: [...favoriteTracks],
       });
     });
-  }
+  };
 
   handleChange = ({ target }) => {
     const { id } = target;
@@ -71,7 +70,7 @@ class Favorites extends React.Component {
     return (
       <div data-testid="page-favorites">
         FAVORITES
-        <MusicCard 
+        <MusicCard
           musicList={ favoriteList }
           favoriteList={ favoriteList }
           handleChange={ this.handleChange }
