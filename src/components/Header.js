@@ -16,8 +16,11 @@ class Header extends React.Component {
   getUserFunc = async () => {
     const login = await getUser();
     this.setState({
-      loginHeader: login.name,
       loading: false,
+    }, () => {
+      this.setState({
+        loginHeader: login.name,
+      });
     });
   };
 

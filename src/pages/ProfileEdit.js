@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { getUser, updateUser } from '../services/userAPI';
 import Loading from './Loading';
 
@@ -9,7 +10,11 @@ class ProfileEdit extends React.Component {
     description: '',
     image: '',
     btnSalvar: true,
-    loading: false,  
+    loading: false,
+  };
+
+  componentDidMount() {
+    this.getUserInfo();
   }
 
   validateInputs = () => {
@@ -19,9 +24,11 @@ class ProfileEdit extends React.Component {
       description,
       image,
     } = this.state;
-    
+
     // let regex = new RegExp('/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i')
-    const emailRegex =  new RegExp(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/, "gm")
+    // const emailRegex = new RegExp(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/, 'gm');
+    const emailRegex = /^[A-Za-z0-9_!#$%&'*+=?`{|}~^.-]+@[A-Za-z0-9.-]+$/;
+
     // const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
 
     const validName = name.length > 0;
@@ -30,19 +37,17 @@ class ProfileEdit extends React.Component {
     const validImage = image.length > 0;
 
     return !(validName && validEmail && validDescription && validImage);
-  }
+  };
 
   handleChange = ({ target: { name, value } }) => {
-
     this.setState({
       [name]: value,
     }, () => {
       this.setState({
         btnSalvar: this.validateInputs(),
       });
-    }); 
-
-  }
+    });
+  };
 
   handleClick = async () => {
     const {
@@ -50,7 +55,7 @@ class ProfileEdit extends React.Component {
       email,
       image,
       description,
-    } = this.state
+    } = this.state;
 
     const {
       history,
@@ -61,18 +66,14 @@ class ProfileEdit extends React.Component {
       email,
       image,
       description,
-    }
+    };
     this.setState({
       loading: true,
     }, async () => {
       await updateUser(userInfoObj);
-      history.push('/profile')
+      history.push('/profile');
     });
-  }
-
-  componentDidMount() {
-    this.getUserInfo();
-  }
+  };
 
   getUserInfo = () => {
     this.setState({
@@ -88,10 +89,10 @@ class ProfileEdit extends React.Component {
         description: userInfos.description,
       });
     });
-  }
+  };
 
   render() {
-    const{
+    const {
       name,
       email,
       description,
@@ -100,14 +101,16 @@ class ProfileEdit extends React.Component {
       btnSalvar,
     } = this.state;
 
+    if (loading) return <Loading />;
+
     return (
       <div data-testid="page-profile-edit">
         PROFILE EDIT
-        <br/>
+        <br />
 
         <form>
           Nome:
-          <input 
+          <input
             type="text"
             name="name"
             data-testid="edit-input-name"
@@ -116,7 +119,7 @@ class ProfileEdit extends React.Component {
           />
 
           Email:
-          <input 
+          <input
             type="email"
             name="email"
             data-testid="edit-input-email"
@@ -125,7 +128,7 @@ class ProfileEdit extends React.Component {
           />
 
           Descrição:
-          <input 
+          <input
             type="text"
             name="description"
             data-testid="edit-input-description"
@@ -134,7 +137,7 @@ class ProfileEdit extends React.Component {
           />
 
           Foto:
-          <input 
+          <input
             type="url"
             name="image"
             data-testid="edit-input-image"
@@ -157,5 +160,11 @@ class ProfileEdit extends React.Component {
     );
   }
 }
+
+ProfileEdit.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
+}.isRequired;
 
 export default ProfileEdit;
