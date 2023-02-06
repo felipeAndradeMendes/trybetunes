@@ -46,10 +46,12 @@ class Login extends React.Component {
     if (loading) return <Loading />;
     return (
       <div data-testid="page-login">
-        <form>
-          Nome:
+        <form className="formLogin">
+          {/* <p>Nome</p> */}
           <input
+            className="inputLogin"
             data-testid="login-name-input"
+            placeholder="nome para login"
             type="text"
             onChange={ this.handleChange }
           />

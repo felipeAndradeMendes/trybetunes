@@ -54,11 +54,13 @@ class Search extends React.Component {
 
     return (
       <div data-testid="page-search">
-        SEARCH
-        <form>
+        {/* SEARCH */}
+        <form className="formSearch">
           <input
+            className="inputSearch"
             type="text"
             data-testid="search-artist-input"
+            placeholder="Album ou artista"
             onChange={ this.handleChange }
             value={ search }
           />
