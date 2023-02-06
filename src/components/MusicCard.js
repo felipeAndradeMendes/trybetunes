@@ -2,28 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class MusicCard extends React.Component {
-  // handleChange = ({ target: { id } }) => {
-  //   const {
-  //     musicList,
-  //   } = this.props;
-
-  //   const trackClicked = musicList.find((track) => track.trackId === Number(id));
-
-  //   console.log(trackClicked);
-  //   this.setFavorite(trackClicked);
-  // };
-
-  // setFavorite = async (trackId) => {
-  //   this.setState({
-  //     loading: true,
-  //   }, async () => {
-  //     await addSong(trackId);
-  //     this.setState({
-  //       loading: false,
-  //     });
-  //   });
-  // };
-
   isChecked = (id, list) => {
     const res = list.some((track) => track.trackId === Number(id));
     // console.log('CHECKED:', res)
@@ -45,6 +23,7 @@ class MusicCard extends React.Component {
             {musicList.map((music) => (
               (music.kind === 'song') && (
                 <li key={ music.trackId }>
+                  {/* {console.log('TRACK NAME:',music.trackName)} */}
                   { music.trackName }
                   <audio
                     data-testid="audio-component"
@@ -61,6 +40,7 @@ class MusicCard extends React.Component {
                   <label htmlFor={ music.trackId }>
                     Favorita
                     <input
+                      name={ music.trackName }
                       type="checkbox"
                       id={ music.trackId }
                       data-testid={ `checkbox-music-${music.trackId}` }

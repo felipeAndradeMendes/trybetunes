@@ -10,11 +10,11 @@ class Favorites extends React.Component {
     loading: false,
   };
 
-  componentDidMount() {
+  componentDidMount()  {
     this.showFavorites();
   }
 
-  showFavorites = () => {
+  showFavorites = async () => {
     this.setState({
       loading: true,
     }, async () => {
