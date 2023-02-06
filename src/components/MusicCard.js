@@ -26,7 +26,7 @@ class MusicCard extends React.Component {
 
   isChecked = (id, list) => {
     const res = list.some((track) => track.trackId === Number(id));
-    // console.log(res)
+    // console.log('CHECKED:', res)
     return res;
   };
 
@@ -42,8 +42,8 @@ class MusicCard extends React.Component {
         <p>MUSIC CARD</p>
         <div>
           <ul>
-            {musicList.map((music, index) => (
-              (index !== 0) && (
+            {musicList.map((music) => (
+              (music.kind === 'song') && (
                 <li key={ music.trackId }>
                   { music.trackName }
                   <audio

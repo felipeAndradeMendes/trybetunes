@@ -42,6 +42,7 @@ class Album extends React.Component {
     } = this.props;
 
     const musicList = await getMusics(id);
+    // console.log('MUSIC LIST:', musicList)
 
     this.setState({
       artistName: musicList[0].artistName,
