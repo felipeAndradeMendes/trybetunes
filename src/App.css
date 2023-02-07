@@ -77,3 +77,60 @@ ul {
   display: flex;
   flex-direction: column;
 }
+
+/***** MUSIC CARD *****/
+.musicCardContainer {
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+.musicCardItem {
+  background-color: rgb(226, 248, 129);
+  margin: 40px 0;
+  padding: 10px;
+  /* border: 1px red solid; */
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 70%;
+}
+
+.ulMusicCard {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.audioMusicCard {
+  width: 300px;
+  height: 30px;
+}
+
+/***** ALBUM CARD *****/
+.albumCardContainer {
+  background-color: burlywood;
+  width: 200px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.imgAlbumCard {
+  max-width: 150px;
+}
+
+.albumAlbumCard {
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0;
+}
+
+.artisstAlbumCard{
+  font-size: 1.1rem;
+}
+

@@ -18,14 +18,15 @@ class MusicCard extends React.Component {
     return (
       <div>
         <p>MUSIC CARD</p>
-        <div>
-          <ul>
+        <div className="musicCardContainer">
+          <ul className="ulMusicCard">
             {musicList.map((music) => (
               (music.kind === 'song') && (
-                <li key={ music.trackId }>
+                <li className="musicCardItem" key={ music.trackId }>
                   {/* {console.log('TRACK NAME:',music.trackName)} */}
                   { music.trackName }
                   <audio
+                    className="audioMusicCard"
                     data-testid="audio-component"
                     src={ music.previewUrl }
                     controls
@@ -38,7 +39,6 @@ class MusicCard extends React.Component {
                     .
                   </audio>
                   <label htmlFor={ music.trackId }>
-                    Favorita
                     <input
                       name={ music.trackName }
                       type="checkbox"
@@ -47,7 +47,7 @@ class MusicCard extends React.Component {
                       onChange={ handleChange }
                       checked={ this.isChecked(music.trackId, favoriteList) }
                     />
-
+                    Favorita
                   </label>
                 </li>
               )
