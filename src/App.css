@@ -32,6 +32,12 @@ ul {
   list-style-type: none;
 }
 
+.linkNavHeader {
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 20px;
+}
+
 /***** LOGIN *****/
 .formLogin {
   align-items: center;
@@ -96,7 +102,7 @@ ul {
   background-color: rgb(226, 248, 129);
   border-radius: 20px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   margin: 10px 0;
   padding: 10px;
   width: 70%;
@@ -113,6 +119,9 @@ ul {
   height: 30px;
   width: 300px;
 }
+
+/***** ALBUM ****/
+
 
 /***** ALBUM CARD *****/
 .albumCardContainer {
@@ -139,3 +148,72 @@ ul {
   font-size: 1.1rem;
 }
 
+/***** PROFILE *****/
+.profileContainer {
+  align-items: center;
+  border: 1px solid brown;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  margin-top: 10vh;
+  padding: 10px 0;
+  text-align: center;
+  width: 40%;
+}
+
+.profileTop {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  width: 100%;
+}
+
+.imgProfile {
+  border-radius: 10px;
+  width: 100px;
+}
+
+.linkProfile {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+/***** PROFILE EDIT *****/
+.profileEditContainer {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+}
+
+.formProfileEditContainer {
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.formProfileEditContainer input {
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 10px 0;
+  text-align: center;
+  width: 95%;
+}
+
+.btnProfileEdit {
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+  width: 100px;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import Loading from './Loading';
+// import perfil from '../images/perfil.jpg';
 
 class Profile extends React.Component {
   state = {
@@ -38,16 +39,18 @@ class Profile extends React.Component {
     if (loading) return <Loading />;
 
     return (
-      <div data-testid="page-profile">
+      <div className="profileContainer" data-testid="page-profile">
         PROFILE
         <br />
-        <div>
+        <div className="profileTop">
           <img
+            className="imgProfile"
             data-testid="profile-image"
             src="url-to-image"
+            // src={ perfil }
             alt={ name }
           />
-          <Link to="/profile/edit">
+          <Link className="linkProfile" to="/profile/edit">
             <p>Editar perfil</p>
           </Link>
         </div>

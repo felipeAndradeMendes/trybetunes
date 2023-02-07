@@ -107,11 +107,11 @@ class ProfileEdit extends React.Component {
     if (loading) return <Loading />;
 
     return (
-      <div data-testid="page-profile-edit">
+      <div className="profileEditContainer" data-testid="page-profile-edit">
         PROFILE EDIT
         <br />
 
-        <form>
+        <form className="formProfileEditContainer">
           Nome:
           <input
             type="text"
@@ -149,6 +149,7 @@ class ProfileEdit extends React.Component {
           />
 
           <button
+            className="btnProfileEdit"
             type="button"
             name="btnSalvar"
             data-testid="edit-button-save"
