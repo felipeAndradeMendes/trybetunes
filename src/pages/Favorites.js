@@ -20,8 +20,8 @@ class Favorites extends React.Component {
       const favoriteTracks = await getFavoriteSongs();
       // console.log('LISTA DE FAVORITOS', favoriteTracks)
       this.setState({
-        loading: false,
         favoriteList: [...favoriteTracks],
+        loading: false,
       });
     });
   };
