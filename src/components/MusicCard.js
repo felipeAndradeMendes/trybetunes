@@ -21,7 +21,8 @@ class MusicCard extends React.Component {
         <div className="musicCardContainer">
           <ul className="ulMusicCard">
             {musicList.map((music) => (
-              (music.kind === 'song') && (
+              // (music.kind === 'song') && (
+              (music.trackId) && (
                 <li className="musicCardItem" key={ music.trackId }>
                   {/* {console.log('TRACK NAME:',music.trackName)} */}
                   { music.trackName }
