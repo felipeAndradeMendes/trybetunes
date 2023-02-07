@@ -9,7 +9,7 @@ class ProfileEdit extends React.Component {
     email: '',
     description: '',
     image: '',
-    btnSalvar: true,
+    btnSalvar: false,
     loading: false,
   };
 
@@ -27,9 +27,8 @@ class ProfileEdit extends React.Component {
 
     // let regex = new RegExp('/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i')
     // const emailRegex = new RegExp(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/, 'gm');
-    const emailRegex = /^[A-Za-z0-9_!#$%&'*+=?`{|}~^.-]+@[A-Za-z0-9.-]+$/;
-
     // const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    const emailRegex = /^[A-Za-z0-9_!#$%&'*+=?`{|}~^.-]+@[A-Za-z0-9.-]+$/;
 
     const validName = name.length > 0;
     const validEmail = emailRegex.test(email);
@@ -72,6 +71,10 @@ class ProfileEdit extends React.Component {
     }, async () => {
       await updateUser(userInfoObj);
       history.push('/profile');
+      // this.setState({
+      //   loading: false,
+      // });
+      // return <Redirect to="/profile/" />;
     });
   };
 

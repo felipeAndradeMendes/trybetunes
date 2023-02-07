@@ -19,8 +19,8 @@ class Profile extends React.Component {
     }, async () => {
       const userInfos = await getUser();
       this.setState({
-        loading: false,
         user: userInfos,
+        loading: false,
       });
     });
   };

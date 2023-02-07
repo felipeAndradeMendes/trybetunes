@@ -65,6 +65,7 @@ class Album extends React.Component {
         loading: true,
       }, async () => {
         await removeSong(favTrack);
+        // console.log('FAV TRACK:', favTrack);
         const favoriteTracks = await getFavoriteSongs();
         this.setState({
           loading: false,
@@ -109,7 +110,7 @@ class Album extends React.Component {
           musicList={ musicList }
           favoriteList={ favoriteList }
           handleChange={ this.handleChange }
-          isChecked={ this.isChecked }
+          // isChecked={ this.isChecked }
         />
       </div>
     );
