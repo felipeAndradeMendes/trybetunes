@@ -12,20 +12,19 @@ class AlbumCard extends React.Component {
     } = this.props;
 
     return (
-      <div className="albumCardContainer">
-        <p>Album Card</p>
-        <img className="imgAlbumCard" src={ albumImg } alt={ albumTitle } />
-        <p className="albumAlbumCard">{ albumTitle }</p>
-        <p className="artisstAlbumCard">{ artistName }</p>
-        <p>
-          <Link
-            to={ `/album/${collectionId}` }
-            data-testid={ `link-to-album-${collectionId}` }
-          >
-            + Infos
-          </Link>
-        </p>
-      </div>
+      <Link
+        to={ `/album/${collectionId}` }
+        data-testid={ `link-to-album-${collectionId}` }
+        className="linkAlbumCard"
+      >
+        <div className="albumCardContainer">
+          {/* <p>Album Card</p> */}
+          <img className="imgAlbumCard" src={ albumImg } alt={ albumTitle } />
+          <p className="albumAlbumCard">{ albumTitle }</p>
+          <p className="artisstAlbumCard">{ artistName }</p>
+
+        </div>
+      </Link>
     );
   }
 }

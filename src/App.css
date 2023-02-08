@@ -1,10 +1,11 @@
 body {
+  background-color: rgb(250, 250, 250);
   display: flex;
   flex-direction: column;
 }
 
 .loading {
-  color: rgba(0, 0, 252, 0.418);
+  color: rgba(204, 213, 174);
   font-size: 3rem;
   margin-top: 30vh;
   text-align: center;
@@ -13,14 +14,14 @@ body {
 /***** HEADER *****/
 .headerTop {
   align-items: center;
-  background-color: blue;
+  background-color: rgba(204, 213, 174);
   display: flex;
   justify-content: space-between;
   padding: 0 40px;
 }
 
 .navHeader {
-  background-color: rgba(0, 0, 252, 0.418);
+  background-color: rgba(233, 237, 201);
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
@@ -33,6 +34,7 @@ ul {
 }
 
 .linkNavHeader {
+  color: black;
   text-decoration: none;
   text-transform: uppercase;
   width: 20px;
@@ -41,7 +43,7 @@ ul {
 /***** LOGIN *****/
 .formLogin {
   align-items: center;
-  background-color: rgba(0, 0, 255, 0.37);
+  background-color: rgba(204, 213, 174);
   display: flex;
   flex-direction: column;
   height: 100px;
@@ -67,7 +69,7 @@ ul {
 
 /***** SEARCH *****/
 .formSearch {
-  background-color: rgb(241, 245, 244);
+  background-color: rgb(250, 250, 250);
   display: flex;
   justify-content: center;
   padding: 50px;
@@ -86,8 +88,15 @@ ul {
 }
 
 .albunsSearchContainer {
+  background-color: rgb(250, 250, 250);
   display: flex;
   flex-direction: column;
+}
+
+.albunsContainer {
+  background-color: rgb(250, 250, 250);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 /***** MUSIC CARD *****/
@@ -99,8 +108,8 @@ ul {
 
 .musicCardItem {
   align-items: center;
-  background-color: rgb(226, 248, 129);
   border-radius: 20px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0 1px 0 , rgba(17, 17, 26, 0.1) 0 0 8px;
   display: flex;
   justify-content: space-around;
   margin: 10px 0;
@@ -126,11 +135,11 @@ ul {
 /***** ALBUM CARD *****/
 .albumCardContainer {
   align-items: center;
-  background-color: burlywood;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 8px;
   display: flex;
   flex-direction: column;
   margin: 20px;
-  padding: 10px 20px;
+  padding: 30px 20px 10px;
   width: 200px;
 }
 
@@ -146,13 +155,23 @@ ul {
 
 .artisstAlbumCard {
   font-size: 1.1rem;
+  margin: 0;
+  padding-bottom: 10px;
 }
+
+.linkAlbumCard {
+  color: black;
+  text-align: center;
+  text-decoration: none;
+}
+
 
 /***** PROFILE *****/
 .profileContainer {
   align-items: center;
-  border: 1px solid brown;
+  background-color: rgb(250, 250, 250);
   border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
