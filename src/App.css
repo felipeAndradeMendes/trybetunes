@@ -8,8 +8,10 @@ body {
 }
 
 .loading {
-  color: rgba(204, 213, 174);
+  color: rgba(0, 0, 0, 0.5);
   font-size: 3rem;
+  font-style: italic;
+  font-weight: 400;
   margin-top: 30vh;
   text-align: center;
 }
@@ -21,6 +23,11 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 0 40px;
+}
+
+.linktitleHeader {
+  color: black;
+  text-decoration: none;
 }
 
 .navHeader {
@@ -103,6 +110,11 @@ ul {
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.titleSearch {
+  font-size: 2rem;
+  text-align: center;
+}
+
 /***** MUSIC CARD *****/
 .musicCardContainer {
   display: flex;
@@ -132,9 +144,6 @@ ul {
   height: 30px;
   width: 300px;
 }
-
-/***** ALBUM ****/
-
 
 /***** ALBUM CARD *****/
 .albumCardContainer {
@@ -206,6 +215,11 @@ ul {
   text-decoration: none;
 }
 
+.titleProfile {
+  font-size: 2rem;
+  text-align: center;
+}
+
 /***** PROFILE EDIT *****/
 .profileEditContainer {
   display: flex;
@@ -239,4 +253,10 @@ ul {
   margin: 10px;
   padding: 10px;
   width: 100px;
+}
+
+/**** FAVORITES *****/
+.titleFavorites {
+  font-size: 2rem;
+  text-align: center;
 }

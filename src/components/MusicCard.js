@@ -17,7 +17,7 @@ class MusicCard extends React.Component {
 
     return (
       <div>
-        <p>MUSIC CARD</p>
+        {/* <p>MUSIC CARD</p> */}
         <div className="musicCardContainer">
           <ul className="ulMusicCard">
             {musicList.map((music) => (

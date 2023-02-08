@@ -54,7 +54,7 @@ class Search extends React.Component {
 
     return (
       <div data-testid="page-search">
-        {/* SEARCH */}
+        <p className="titleSearch">SEARCH</p>
         <form className="formSearch">
           <input
             className="inputSearch"

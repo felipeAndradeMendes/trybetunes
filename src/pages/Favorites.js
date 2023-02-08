@@ -69,7 +69,7 @@ class Favorites extends React.Component {
 
     return (
       <div data-testid="page-favorites">
-        FAVORITES
+        <p className="titleFavorites">FAVORITES</p>
         <MusicCard
           musicList={ favoriteList }
           favoriteList={ favoriteList }

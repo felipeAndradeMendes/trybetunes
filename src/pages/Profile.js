@@ -40,7 +40,7 @@ class Profile extends React.Component {
 
     return (
       <div className="profileContainer" data-testid="page-profile">
-        PROFILE
+        <p className="titleProfile">PROFILE</p>
         <br />
         <div className="profileTop">
           <img
